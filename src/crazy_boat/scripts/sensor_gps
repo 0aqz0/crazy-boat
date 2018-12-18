@@ -11,8 +11,8 @@ class sensor_gps:
 		self.publish()
 
 	def publish(self):
-        while not rospy.is_shutdown():
-            self.publisher.publish(self.gpsInfo)
+            while not rospy.is_shutdown():
+                self.publisher.publish(self.gpsInfo)
 
 if __name__ == '__main__':
     try:
