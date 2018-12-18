@@ -1,10 +1,17 @@
 #!/usr/bin/env python
 import rospy
 from std_msgs.msg import String
+from sensor_msgs.msg import NavSatFix
 
 class sensor_gps:
 	def __init__(self):
-		pass
+		rospy.init_node('sensor_gps')
+		self.publisher = rospy.Publisher('gpsInfo', NavSatFix, queue_size=10)
+		self.gpsInfo = NavSatFix()
+
+	def publish(self):
+        while not rospy.is_shutdown():
+            self.publisher.publish(self.gpsInfo)
 
 if __name__ == '__main__':
     try:
