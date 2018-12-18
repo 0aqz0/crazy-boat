@@ -8,6 +8,7 @@ class sensor_gps:
 		rospy.init_node('sensor_gps')
 		self.publisher = rospy.Publisher('gpsInfo', NavSatFix, queue_size=10)
 		self.gpsInfo = NavSatFix()
+		self.publish()
 
 	def publish(self):
         while not rospy.is_shutdown():
